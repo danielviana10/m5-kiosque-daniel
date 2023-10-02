@@ -21,3 +21,20 @@ def get_products_by_type(_type):
         if (product["type"] == _type):
             product_array.append(product)
     return product_array
+
+
+def add_product(menu, args):
+    new_id = 0
+
+    for product in menu:
+        if (product["_id"] > new_id):
+            new_id = product["_id"]
+    add_id = new_id + 1
+
+    _product = {"_id": add_id}
+
+    _product.update(args)
+
+    menu.append(_product)
+
+    return _product
